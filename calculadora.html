@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC e RCQ Inteligente</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+<body>
+
+    <div class="imc-container">
+        <h2>Calculadora de IMC & RCQ</h2>
+        <p class="subtitle">Descubra seu IMC e a sua Relação Cintura-Quadril de forma rápida</p>
+
+        
+        <form id="imcForm">
+            <div class="input-group">
+                <label for="weight">Peso (kg):</label>
+                <input type="number" id="weight" step="0.1" placeholder="Ex: 75.5" required min="10" max="300">
+            </div>
+
+            <div class="input-group">
+                <label for="height">Altura (m):</label>
+                <input type="number" id="height" step="0.01" placeholder="Ex: 1.75" required min="0.5" max="2.5">
+            </div>
+
+            <div class="input-group">
+                <label for="waist">Cintura (cm):</label>
+                <input type="number" id="waist" step="0.1" placeholder="Ex: 85.0" required min="10" max="200">
+            </div>
+
+            <div class="input-group">
+                <label for="hip">Quadril (cm):</label>
+                <input type="number" id="hip" step="0.1" placeholder="Ex: 100.0" required min="10" max="200">
+            </div>
+
+            <div class="input-group">
+                <label for="sex">Sexo Biológico:</label>
+                <select id="sex" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="m">Masculino</option>
+                    <option value="f">Feminino</option>
+                </select>
+            </div>
+
+            <button type="submit" id="btnSubmit">Calcular Indicadores</button>
+        </form>
+
+        <!-- ANIMAÇÃO DE CARREGAMENTO -->
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Consultando servidor...</p>
+        </div>
+
+        
+        <div id="resultContainer" class="hidden">
+            <div class="result-card">
+                <h3>Seu Resultado:</h3>
+                
+                <div class="metrics-display">
+                   
+                    <div class="metric-box">
+                        <h4>Massa Corporal (IMC)</h4>
+                        <div id="imcValue" class="imc-badge">00.0</div>
+                        <p id="imcStatus" class="imc-status">Calculando...</p>
+                    </div>
+                    
+                   
+                    <div class="metric-box">
+                        <h4>Relação Cintura-Quadril (RCQ)</h4>
+                        <div id="rcqValue" class="imc-badge">0.00</div>
+                        <p id="rcqStatus" class="imc-status">Calculando...</p>
+                    </div>
+                </div>
+
+                <p id="imcMessage" class="imc-message"></p>
+                
+                <div class="xml-actions">
+                    <button id="btnDownloadXml" class="btn-xml">Baixar Relatório Oficial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculadora.js"></script>
+</body>
+</html>

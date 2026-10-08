@@ -1,0 +1,229 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f8fafc;
+    padding: 20px;
+}
+
+.imc-container {
+    background-color: #000000;
+    border: 1px solid #d7d7d7;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h2 {
+    color: #8f35d8;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #0f172a;
+    border: 2px solid #b1b9c4;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: #420772;
+    box-shadow: 0 0 0 3px rgba(23, 182, 76, 0.912);
+}
+
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #420772;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #08c83f;
+}
+
+button:disabled {
+    background-color: #334155;
+    cursor: not-allowed;
+    color: #64748b;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#loading {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(56, 189, 248, 0.1);
+    border-top: 4px solid #22ea7f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.result-card {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #0f172a;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    animation: fadeIn 0.4s ease-out;
+    text-align: left;
+}
+
+.result-card h3 {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #223249;
+    padding-bottom: 8px;
+}
+
+.metrics-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.metric-box {
+    background-color: #1e293b;
+    padding: 15px 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+.metric-box h4 {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.imc-badge {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 10px 0 5px 0;
+    color: #bdeb04;
+}
+
+.imc-status {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.imc-message {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #1e293b;
+    border-left: 3px solid #fbea30;
+    border-radius: 4px;
+}
+
+.xml-actions {
+    border-top: 1px solid #223249;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.btn-xml {
+    background-color: #10b981;
+    font-size: 0.9rem;
+    padding: 12px;
+    margin-top: 0;
+}
+
+.btn-xml:hover {
+    background-color: #059669;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 440px) {
+    .metrics-display {
+        grid-template-columns: 1fr;
+    }
+}
